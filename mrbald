@@ -1,11 +1,11 @@
 #!/bin/bash
 
-mrbald_subscribers=$(wget -q --html-extension --restrict-file-names=windows \
---domains youtube.com https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA \
--O - | grep abonnees | awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | \
-sed 's/\.//') && echo "$mrbald_subscribers Mr Bald"
+subscribers() {
+    subscribers=$(wget -q --html-extension --restrict-file-names=windows \
+        --domains youtube.com "$2" -O - | grep abonnees | \
+        awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | sed 's/\.//') && \
+    echo "$subscribers $1"
+}
 
-karlrock_subscribers=$(wget -q --html-extension --restrict-file-names=windows \
---domains youtube.com https://www.youtube.com/channel/UCtfXgNnA-QcxjHJjk5wXLFg \
--O - | grep abonnees | awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | \
-sed 's/\.//') && echo "$karlrock_subscribers Karl Rock"
+subscribers "Mr Bald" https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA
+subscribers "Karl Rock" https://www.youtube.com/channel/UCtfXgNnA-QcxjHJjk5wXLFg
