@@ -1,0 +1,5 @@
+#!/bin/bash
+mrbald_subscribers=$(wget -q --html-extension --restrict-file-names=windows \
+--domains youtube.com https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA \
+-O - | grep abonnees | awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | \
+sed 's/\.//') && echo $mrbald_subscribers
