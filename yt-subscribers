@@ -2,10 +2,11 @@
 
 subscribers() {
     channel=$(wget -q "$1" -O -| \
-        grep '<title>')
+        grep '<title>') && \
     subscribers=$(wget -q "$1" -O - | grep abonnees | \
         awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | sed 's/\.//g') && \
-    echo "$subscribers ${channel:9}"
+    time=$(date +"%s") && \
+    echo -e "{\"time\":\"$time\",\"subscribers\":\"$subscribers\",\"channel\":\"${channel:9}\"}"
 }
 
 if [ "$#" -eq 0 ]; then
