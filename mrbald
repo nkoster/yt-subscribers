@@ -1,15 +1,10 @@
 #!/bin/bash
 
 ### Mister Bald
+./yt-subscribers https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA
 
-subscribers() {
-    channel=$(wget -q "$1" -O -| \
-        grep '<title>')
-    subscribers=$(wget -q "$1" -O - | grep abonnees | \
-        awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | sed 's/\.//g') && \
-    echo "$subscribers ${channel:9}"
-}
+### Karl Rock
+./yt-subscribers https://www.youtube.com/channel/UCtfXgNnA-QcxjHJjk5wXLFg
 
-subscribers https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA
-subscribers https://www.youtube.com/channel/UCtfXgNnA-QcxjHJjk5wXLFg
-subscribers https://www.youtube.com/channel/UCyEd6QBSgat5kkC6svyjudA
+### Mark Wiens
+./yt-subscribers https://www.youtube.com/channel/UCyEd6QBSgat5kkC6svyjudA
