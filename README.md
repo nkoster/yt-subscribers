@@ -14,12 +14,6 @@ results in a JSON object like this:
 {"time":"1548875491","subscribers":"232160","channel":"bald and bankrupt"}
 ```
 
-Warning...
-
-Because of the simplicity of the way I parse the result from wget, and/or, not using any API, this thing is supposed to break easily.
-
-Any layout change that Youtube pushes to their web site, can stop the script from working correctly.
-
 Some funny results:
 
 ```
@@ -40,3 +34,9 @@ Some funny results:
 {"time":"1548878196","subscribers":"3682264","channel":"Mark Wiens"}
 2056 niels@pvofflapnko:~/src/mrbald$
 ```
+
+**Warning**
+
+Because of the simplicity of the way I parse the result from wget, and/or, not using any API, this thing is supposed to break easily.
+
+Any layout change that Youtube pushes to their web site, can stop the script from working correctly.
