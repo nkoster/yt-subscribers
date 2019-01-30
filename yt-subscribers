@@ -10,10 +10,11 @@ subscribers() {
 }
 
 if [ "$#" -eq 0 ]; then
+    mrbald="https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA"
     echo -e "\nUsage: $0 <youtube main channel page>\n"
-    echo -e "For example: $0 https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA\n"
-    subscribers https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA
-    subscribers https://www.youtube.com/channel/UCtfXgNnA-QcxjHJjk5wXLFg
+    echo -e "For example: $0 $mrbald shows:\n"
+    subscribers $mrbald
+    echo
 else
     subscribers "$1"
 fi
