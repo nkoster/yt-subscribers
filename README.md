@@ -37,6 +37,6 @@ Some funny results:
 
 **Warning**
 
-Because of the simplicity of the way I parse the result from wget, and/or, not using any API, this thing is supposed to break easily.
+Because of the simplicity of the way I parse the result from wget, and/or, not using any API, this thing is suppose to break easily.
 
 Any layout change that Youtube pushes to their web site, can stop the script from working correctly.
