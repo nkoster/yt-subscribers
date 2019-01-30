@@ -1,9 +1,10 @@
 #!/bin/bash
 
 subscribers() {
-    channel=$(wget -q "$1" -O -| \
+    content=$(wget -q "$1" -O -)
+    channel=$(echo "$content" | \
         grep '<title>') && \
-    subscribers=$(wget -q "$1" -O - | grep abonnees | \
+    subscribers=$(echo "$content" | grep abonnees | \
         awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | sed 's/\.//g') && \
     time=$(date +"%s") && \
     echo -e "{\"time\":\"$time\",\"subscribers\":\"$subscribers\",\"channel\":\"${channel:9}\"}"
