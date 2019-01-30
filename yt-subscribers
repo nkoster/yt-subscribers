@@ -2,8 +2,7 @@
 
 subscribers() {
     content=$(wget -q "$1" -O -) && \
-    channel=$(echo "$content" | \
-        grep '<title>') && \
+    channel=$(echo "$content" | grep '<title>') && \
     subscribers=$(echo "$content" | grep abonnees | \
         awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | sed 's/\.//g') && \
     time=$(date +"%s") && \
