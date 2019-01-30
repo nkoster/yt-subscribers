@@ -1,0 +1,19 @@
+#!/bin/bash
+
+subscribers() {
+    channel=$(wget -q "$1" -O -| \
+        grep '<title>')
+    subscribers=$(wget -q --html-extension --restrict-file-names=windows \
+        --domains youtube.com "$1" -O - | grep abonnees | \
+        awk -F 'aria-label="' '{print$6}' | awk '{print$1}' | sed 's/\.//g') && \
+    echo "$subscribers ${channel:9}"
+}
+
+if [ "$#" -eq 0 ]; then
+    echo -e "\nUsage: $0 <youtube main channel page>\n"
+    echo -e "For example: $0 https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA\n"
+    subscribers https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA
+    subscribers https://www.youtube.com/channel/UCtfXgNnA-QcxjHJjk5wXLFg
+else
+    subscribers "$1"
+fi
