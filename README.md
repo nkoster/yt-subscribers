@@ -35,7 +35,7 @@ Some funny results:
 2056 niels@pvofflapnko:~/src/mrbald$
 ```
 
-A graph, generated with rrdtool, extracted from a one day / 5 minute sample set, collected with a cron job:
+A graph, generated with rrdtool, a one day / 5 minute sample set, data collected with a cron job:
 ![Mr Bald ad Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
 **Warning**
