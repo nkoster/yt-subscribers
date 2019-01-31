@@ -35,6 +35,7 @@ Some funny results:
 2056 niels@pvofflapnko:~/src/mrbald$
 ```
 
+A graph generated with rrdtool, extracted from a 3 day / 5 minute sample set:
 ![Mr Bald ad Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
 **Warning**
