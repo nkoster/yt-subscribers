@@ -35,6 +35,8 @@ Some funny results:
 2056 niels@pvofflapnko:~/src/mrbald$
 ```
 
+![Mr Bald ad Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
+
 **Warning**
 
 Because of the simplicity of the way I parse the result from wget, and/or, not using any API, this thing is suppose to break easily.
