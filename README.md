@@ -14,7 +14,7 @@ results in a JSON object like this:
 {"time":"1548875491","subscribers":"232160","channel":"bald and bankrupt"}
 ```
 
-Some funny results:
+The script "mrbald" is filled with some examples:
 
 ```
 2046 niels@pvofflapnko:~/src/mrbald$ ./mrbald
@@ -35,7 +35,7 @@ Some funny results:
 2056 niels@pvofflapnko:~/src/mrbald$
 ```
 
-A graph, generated with rrdtool. One day, 5 minute samples, data collected with a cron job:
+A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till now, 5 minute samples, data collected with a cron job:
 ![Mr Bald ad Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
 **Warning**
