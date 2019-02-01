@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### Pull the collected data from the server where collecting is taken place.
-scp w3b:yt-subscribers/database.yt .
+curl -sLO https://w3b.net/database.yt
 
 ### database.yt should contain lines like this:
 # {"time":"1548879242","subscribers":"232369","channel":"bald and bankrupt"}
