@@ -14,7 +14,7 @@ results in a JSON object like this:
 {"time":"1548875491","subscribers":"232160","channel":"bald and bankrupt"}
 ```
 
-The script "[mrbald.sh](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.sh)" is filled with some examples:
+The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald)" is filled with some examples:
 
 ```
 2046 niels@pvofflapnko:~/src/mrbald$ ./mrbald
@@ -39,7 +39,7 @@ A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) 
 
 ![Mr Bald ad Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
-The script "[bald-karl.sh](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/bald-karl.sh)" contains the rrdtool stuff to create above graph.
+The script "[bald-karl](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/bald-karl)" contains the rrdtool stuff to create above graph.
 
 **Warning**
 
