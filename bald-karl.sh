@@ -31,7 +31,7 @@ sh /tmp/rrdkarl
     -w 600 -h 300 \
     DEF:ds1a=bald.rrd:ds1:AVERAGE \
     DEF:ds2a=karl.rrd:ds1:AVERAGE \
-    LINE2:ds1a#00a000:"Mr Bald" \
-    LINE2:ds2a#0000a0:"Karl Rock"
+    LINE2:ds1a#40a040:"Mr Bald" \
+    LINE2:ds2a#4040ff:"Karl Rock"
 
 echo "-- $png has been created."
