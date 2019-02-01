@@ -4,7 +4,8 @@
 scp w3b:yt-subscribers/database.yt .
 
 ### database.yt should contain lines like this:
-### {"time":"1548875491","subscribers":"232160","channel":"bald and bankrupt"}
+# {"time":"1548879242","subscribers":"232369","channel":"bald and bankrupt"}
+# {"time":"1548879244","subscribers":"293699","channel":"Karl Rock"}
 
 start_time=$(head -1 database.yt | awk -F '"' '{print$4}')
 now=$(date +"%s")
