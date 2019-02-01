@@ -1,8 +1,12 @@
 #!/bin/bash
 
+### Pull the collected data from the server where collecting is taken place.
 scp w3b:yt-subscribers/database.yt .
 
-start_time=$(head -1 database.yt|awk -F '"' '{print$4}')
+### database.yt should contain lines like this:
+### {"time":"1548875491","subscribers":"232160","channel":"bald and bankrupt"}
+
+start_time=$(head -1 database.yt | awk -F '"' '{print$4}')
 now=$(date +"%s")
 total=$(echo $(($now-$start_time)))
 
