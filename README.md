@@ -36,7 +36,9 @@ The script "mrbald" is filled with some examples:
 ```
 
 A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Fri Feb 1 22:00:02 CET 2019 (1549054802), 5 minute samples, data collected with a cron job:
+
 ![Mr Bald ad Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
+
 The script "bald-karl.sh" contains the rrdtool stuff to create above graph.
 
 **Warning**
