@@ -1,11 +1,6 @@
 #!/bin/bash
 
-### Pull the collected data from the server where collecting is taken place.
 curl -sLO https://w3b.net/database.yt
-
-### database.yt should contain lines like this:
-# {"time":"1548879242","subscribers":"232369","channel":"bald and bankrupt"}
-# {"time":"1548879244","subscribers":"293699","channel":"Karl Rock"}
 
 start_time=$(head -1 database.yt | awk -F '"' '{print$4}')
 now=$(date +"%s")
