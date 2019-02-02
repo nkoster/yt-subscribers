@@ -37,7 +37,7 @@ A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) 
 
 The script "[bald-karl](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/bald-karl)" contains the rrdtool stuff to create above graph.
 
-In the script "[mark-hick](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mark-hick)", I'm comparing weapons against food 😱
+In the script "[mark-hick](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mark-hick)", I'm comparing food against weapons... 😱
 
 **Warning**
 
