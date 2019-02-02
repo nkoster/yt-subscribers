@@ -23,22 +23,12 @@ Another example:
 The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald)" is filled with some examples:
 
 ```
-2046 niels@pvofflapnko:~/src/mrbald$ ./mrbald
-{"time":"1548877591","subscribers":"232250","channel":"bald and bankrupt"}
-{"time":"1548877593","subscribers":"293710","channel":"Karl Rock"}
-{"time":"1548877594","subscribers":"899262","channel":"Георгий Кавказ"}
-{"time":"1548877596","subscribers":"3682196","channel":"Mark Wiens"}
-2046 niels@pvofflapnko:~/src/mrbald$ ./mrbald
-{"time":"1548877771","subscribers":"232259","channel":"bald and bankrupt"}
-{"time":"1548877773","subscribers":"293710","channel":"Karl Rock"}
-{"time":"1548877775","subscribers":"899275","channel":"Георгий Кавказ"}
-{"time":"1548877777","subscribers":"3682218","channel":"Mark Wiens"}
-2049 niels@pvofflapnko:~/src/mrbald$ ./mrbald
-{"time":"1548878190","subscribers":"232274","channel":"bald and bankrupt"}
-{"time":"1548878192","subscribers":"293712","channel":"Karl Rock"}
-{"time":"1548878193","subscribers":"899296","channel":"Георгий Кавказ"}
-{"time":"1548878196","subscribers":"3682264","channel":"Mark Wiens"}
-2056 niels@pvofflapnko:~/src/mrbald$
+./mrbald
+{"time":"1549136476","subscribers":"240865","channel":"bald and bankrupt"}
+{"time":"1549136478","subscribers":"295342","channel":"Karl Rock"}
+{"time":"1549136479","subscribers":"910281","channel":"Георгий Кавказ"}
+{"time":"1549136481","subscribers":"3701030","channel":"Mark Wiens"}
+{"time":"1549136483","subscribers":"3881219","channel":"hickok45"}
 ```
 
 A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Fri Feb 1 22:00:02 CET 2019 (1549054802), 5 minute samples, data collected with a cron job:
