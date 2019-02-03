@@ -45,9 +45,9 @@ sh /tmp/rrdkarl
     DEF:ds1a=bald.rrd:ds1:AVERAGE \
     DEF:ds2a=karl.rrd:ds1:AVERAGE \
     LINE2:ds1a#40a040:"Mr Bald" \
-    COMMENT:"$s_per_hour_bald s/h" \
+    COMMENT:"↗ $s_per_hour_bald s/hour" \
     LINE2:ds2a#4040ff:"Karl Rock" \
-    COMMENT:"$s_per_hour_karl s/h"
+    COMMENT:"↗ $s_per_hour_karl s/hour"
 
 echo "-- $png has been created."
 
