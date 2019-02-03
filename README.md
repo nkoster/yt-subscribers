@@ -33,12 +33,12 @@ The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/ma
 
 A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Sun Feb 3 21:05:02 CET 2019 (1549224302), 5 minute samples, data collected with a cron job:
 
-![Mr Bald ad Karl Sun Feb  3 21:05:02 CET 2019Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
+![Mr Bald and Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
 The script "[bald-karl](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/bald-karl)" contains the rrdtool stuff to create above graph.
 
 In the script "[mark-hick](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mark-hick)", I'm comparing food against weapons... 😱 Start date is Sat Feb 2 20:10:02 CET 2019.
-(https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mark-hick.png "Mark Wiens and Hickok45")
+![Mark Wiens and Hickok45](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mark-hick.png "Mark Wiens and Hickok45")
 
 **Warning**
 
