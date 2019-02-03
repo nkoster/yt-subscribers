@@ -39,6 +39,7 @@ The script "[bald-karl](https://raw.githubusercontent.com/nkoster/yt-subscribers
 
 In the script "[mark-hick](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mark-hick)", I'm comparing food against weapons... 😱
 Graph from Sat Feb 2 20:10:02 CET 2019 till Sun Feb  3 23:40:02 CET 2019.
+
 ![Mark Wiens and Hickok45](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mark-hick.png "Mark Wiens and Hickok45")
 
 **Warning**
