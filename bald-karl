@@ -9,8 +9,20 @@ start_time=$(head -1 $db | awk -F '"' '{print$4}')
 now=$(date +"%s")
 total=$(echo $(($now-$start_time)))
 png="bald-karl.png"
+hours=$(($total/3600))
 
-echo "-- $db contains $(($total/3600)) hours data."
+echo "-- $db contains $hours hours data."
+
+s_begin_bald=$(head -5 $db | grep 'bald' | awk -F '"' '{print$8}')
+s_begin_karl=$(head -5 $db | grep 'Karl' | awk -F '"' '{print$8}')
+s_end_bald=$(tail -6 $db | grep 'bald' | awk -F '"' '{print$8}')
+s_end_karl=$(tail -6 $db | grep 'Karl' | awk -F '"' '{print$8}')
+
+s_per_hour_bald=$((($s_end_bald-$s_begin_bald)/$hours))
+s_per_hour_karl=$((($s_end_karl-$s_begin_karl)/$hours))
+
+echo "-- Mr Bald: $s_per_hour_bald s/h"
+echo "-- Karl Rock: $s_per_hour_karl s/h"
 
 rrdtool create bald.rrd --step=1 --start=1548879240 \
     DS:ds1:GAUGE:5m:U:U RRA:AVERAGE:0:1:${total}s
@@ -29,10 +41,13 @@ sh /tmp/rrdkarl
 
 1>/dev/null rrdtool graph $png --start 1548879240 --end now \
     -w 600 -h 300 \
+    --vertical-label='subscribers (s)' \
     DEF:ds1a=bald.rrd:ds1:AVERAGE \
     DEF:ds2a=karl.rrd:ds1:AVERAGE \
     LINE2:ds1a#40a040:"Mr Bald" \
-    LINE2:ds2a#4040ff:"Karl Rock"
+    COMMENT:"$s_per_hour_bald s/h" \
+    LINE2:ds2a#4040ff:"Karl Rock" \
+    COMMENT:"$s_per_hour_karl s/h"
 
 echo "-- $png has been created."
 
