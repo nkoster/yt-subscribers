@@ -31,7 +31,7 @@ The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/ma
 {"time":"1549136483","subscribers":"3881219","channel":"hickok45"}
 ```
 
-A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Fri Feb 1 22:00:02 CET 2019 (1549054802), 5 minute samples, data collected with a cron job:
+A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Sun Feb 3 19:55:02 CET 2019 (1549220102), 5 minute samples, data collected with a cron job:
 
 ![Mr Bald ad Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
