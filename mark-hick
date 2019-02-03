@@ -27,7 +27,7 @@ cat $db | grep hickok | \
 sh /tmp/rrdmark
 sh /tmp/rrdhick
 
-1>/dev/null rrdtool graph mark-hick.png --start 1548879240 --end now \
+1>/dev/null rrdtool graph $png --start 1548879240 --end now \
     -w 600 -h 300 \
     DEF:ds1a=mark.rrd:ds1:AVERAGE \
     DEF:ds2a=hick.rrd:ds1:AVERAGE \
@@ -35,3 +35,5 @@ sh /tmp/rrdhick
     LINE2:ds2a#ff4040:"Hickok45"
 
 echo "-- $png has been created."
+
+xdg-open $png

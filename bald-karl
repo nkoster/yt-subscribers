@@ -27,7 +27,7 @@ cat $db | grep Karl | \
 sh /tmp/rrdbald
 sh /tmp/rrdkarl
 
-1>/dev/null rrdtool graph bald-karl.png --start 1548879240 --end now \
+1>/dev/null rrdtool graph $png --start 1548879240 --end now \
     -w 600 -h 300 \
     DEF:ds1a=bald.rrd:ds1:AVERAGE \
     DEF:ds2a=karl.rrd:ds1:AVERAGE \
@@ -35,3 +35,5 @@ sh /tmp/rrdkarl
     LINE2:ds2a#4040ff:"Karl Rock"
 
 echo "-- $png has been created."
+
+xdg-open $png
