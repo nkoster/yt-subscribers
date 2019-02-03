@@ -1,38 +1,56 @@
 #!/bin/bash
 
 db="database.yt"
+db2="/tmp/$db"
 
 echo "-- downloading $db"
 curl -sLO https://w3b.net/$db
 
-start_time=$(head -1 $db | awk -F '"' '{print$4}')
+sed '1,4280d' $db > $db2
+
+start_time=1549134602
 now=$(date +"%s")
 total=$(echo $(($now-$start_time)))
 png="mark-hick.png"
+hours=$(($total/3600))
 
-echo "-- $db contains $(($total/3600)) hours data."
+echo "-- $db2 contains $(($total/3600)) hours data."
 
-rrdtool create mark.rrd --step=1 --start=1548879240 \
+s_begin_mark=$(head -5 $db2 | grep 'Mark' | awk -F '"' '{print$8}')
+s_begin_hick=$(head -5 $db2 | grep 'hickok' | awk -F '"' '{print$8}')
+s_end_mark=$(tail -6 $db2 | grep 'Mark' | awk -F '"' '{print$8}')
+s_end_hick=$(tail -6 $db2 | grep 'hickok' | awk -F '"' '{print$8}')
+
+s_per_hour_mark=$((($s_end_mark-$s_begin_mark)/$hours))
+s_per_hour_hick=$((($s_end_hick-$s_begin_hick)/$hours))
+
+echo "-- Mark Wiens: $s_per_hour_mark s/hour"
+echo "-- Hickok45: $s_per_hour_hick s/hour"
+
+rrdtool create mark.rrd --step=1 --start=$start_time \
     DS:ds1:GAUGE:5m:U:U RRA:AVERAGE:0:1:${total}s
-rrdtool create hick.rrd --step=1 --start=1548879240 \
+rrdtool create hick.rrd --step=1 --start=$start_time \
     DS:ds1:GAUGE:5m:U:U RRA:AVERAGE:0:1:${total}s
 
-cat $db | grep Mark | \
+cat $db2 | grep Mark | \
     awk -v "rrdfile=mark.rrd" -F '"' \
     '{printf("rrdtool update %s %s:%s\n",rrdfile,$4,$8)}' >/tmp/rrdmark
-cat $db | grep hickok | \
+cat $db2 | grep hickok | \
     awk -v "rrdfile=hick.rrd" -F '"' \
     '{printf("rrdtool update %s %s:%s\n",rrdfile,$4,$8)}' >/tmp/rrdhick
 
 sh /tmp/rrdmark
 sh /tmp/rrdhick
 
-1>/dev/null rrdtool graph $png --start 1548879240 --end now \
+1>/dev/null rrdtool graph $png --start $start_time --end now \
     -w 600 -h 300 \
+    --vertical-label='subscribers (s)' \
     DEF:ds1a=mark.rrd:ds1:AVERAGE \
-    DEF:ds2a=hick.rrd:ds1:AVERAGE \
     LINE2:ds1a#40a060:"Mark Wiens" \
-    LINE2:ds2a#ff4040:"Hickok45"
+    COMMENT:"↗ $s_per_hour_mark s/hour" \
+    DEF:ds2a=hick.rrd:ds1:AVERAGE \
+    LINE2:ds2a#ff4040:"Hickok45" \
+    COMMENT:"↗ $s_per_hour_hick s/hour"
 
 echo "-- $png has been created."
 
