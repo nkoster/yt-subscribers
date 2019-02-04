@@ -1,8 +1,12 @@
 #!/bin/bash
 
+output() {
+    echo "-- $(date +%H:%M.%S) $1"
+}
+
 db="database.yt"
 
-echo "-- downloading $db"
+output "downloading $db"
 curl -sLO https://w3b.net/$db
 
 start_time=$(head -1 $db | awk -F '"' '{print$4}')
@@ -11,7 +15,7 @@ total=$(echo $(($now-$start_time)))
 png="bald-karl.png"
 hours=$(($total/3600))
 
-echo "-- $db contains $hours hours data."
+output "$db contains $hours hours data."
 
 s_begin_bald=$(head -5 $db | grep 'bald' | awk -F '"' '{print$8}')
 s_begin_karl=$(head -5 $db | grep 'Karl' | awk -F '"' '{print$8}')
@@ -21,8 +25,8 @@ s_end_karl=$(tail -6 $db | grep 'Karl' | awk -F '"' '{print$8}')
 s_per_hour_bald=$((($s_end_bald-$s_begin_bald)/$hours))
 s_per_hour_karl=$((($s_end_karl-$s_begin_karl)/$hours))
 
-echo "-- Mr Bald: $s_per_hour_bald s/h"
-echo "-- Karl Rock: $s_per_hour_karl s/h"
+output "Mr Bald: $s_per_hour_bald s/h"
+output "Karl Rock: $s_per_hour_karl s/h"
 
 rrdtool create bald.rrd --step=1 --start=1548879240 \
     DS:ds1:GAUGE:5m:U:U RRA:AVERAGE:0:1:${total}s
@@ -36,8 +40,12 @@ cat $db | grep Karl | \
     awk -v "rrdfile=karl.rrd" -F '"' \
     '{printf("rrdtool update %s %s:%s\n",rrdfile,$4,$8)}' >/tmp/rrdkarl
 
+output "filling bald.rrd"
 sh /tmp/rrdbald
+output "filling karl.rrd"
 sh /tmp/rrdkarl
+
+output "creating graph $png"
 
 1>/dev/null rrdtool graph $png --start 1548879240 --end now \
     -w 600 -h 300 \
@@ -49,6 +57,6 @@ sh /tmp/rrdkarl
     LINE2:ds2a#4040ff:"Karl Rock" \
     COMMENT:"↗ $s_per_hour_karl s/hour"
 
-echo "-- $png has been created."
+output "$png has been created."
 
 xdg-open $png
