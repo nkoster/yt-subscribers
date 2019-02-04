@@ -1,9 +1,13 @@
 #!/bin/bash
 
+output() {
+    echo "-- $(date +%H:%M.%S) $1"
+}
+
 db="database.yt"
 db2="/tmp/$db"
 
-echo "-- downloading $db"
+output "downloading $db"
 curl -sLO https://w3b.net/$db
 
 sed '1,4280d' $db > $db2
@@ -14,7 +18,7 @@ total=$(echo $(($now-$start_time)))
 png="mark-hick.png"
 hours=$(($total/3600))
 
-echo "-- $db2 contains $(($total/3600)) hours data."
+output "$db2 contains $(($total/3600)) hours data."
 
 s_begin_mark=$(head -5 $db2 | grep 'Mark' | awk -F '"' '{print$8}')
 s_begin_hick=$(head -5 $db2 | grep 'hickok' | awk -F '"' '{print$8}')
@@ -24,8 +28,8 @@ s_end_hick=$(tail -6 $db2 | grep 'hickok' | awk -F '"' '{print$8}')
 s_per_hour_mark=$((($s_end_mark-$s_begin_mark)/$hours))
 s_per_hour_hick=$((($s_end_hick-$s_begin_hick)/$hours))
 
-echo "-- Mark Wiens: $s_per_hour_mark s/hour"
-echo "-- Hickok45: $s_per_hour_hick s/hour"
+output "Mark Wiens: $s_per_hour_mark s/hour"
+output "Hickok45: $s_per_hour_hick s/hour"
 
 rrdtool create mark.rrd --step=1 --start=$start_time \
     DS:ds1:GAUGE:5m:U:U RRA:AVERAGE:0:1:${total}s
@@ -39,8 +43,12 @@ cat $db2 | grep hickok | \
     awk -v "rrdfile=hick.rrd" -F '"' \
     '{printf("rrdtool update %s %s:%s\n",rrdfile,$4,$8)}' >/tmp/rrdhick
 
+output "filling mark.rrd"
 sh /tmp/rrdmark
+output "filling hick.rrd"
 sh /tmp/rrdhick
+
+output "creating graph $png"
 
 1>/dev/null rrdtool graph $png --start $start_time --end now \
     -w 600 -h 300 \
@@ -52,6 +60,6 @@ sh /tmp/rrdhick
     LINE2:ds2a#ff4040:"Hickok45" \
     COMMENT:"↗ $s_per_hour_hick s/hour"
 
-echo "-- $png has been created."
+output "$png has been created."
 
 xdg-open $png
