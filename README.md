@@ -20,7 +20,7 @@ Another example:
 ./yt-subscribers https://www.youtube.com/user/hickok45
 ```
 
-The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald)" is filled with some examples:
+The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald)" is filled with more examples, my favorite Youtube channels:
 
 ```
 ./mrbald
@@ -30,6 +30,8 @@ The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/ma
 {"time":"1549136481","subscribers":"3701030","channel":"Mark Wiens"}
 {"time":"1549136483","subscribers":"3881219","channel":"hickok45"}
 ```
+
+I'm collecting this data, just for fun.
 
 A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Sun Feb 3 21:05:02 CET 2019 (1549224302), 5 minute samples, data collected with a cron job:
 
@@ -45,6 +47,4 @@ Graph from Sat Feb 2 20:10:02 CET 2019 till Mon Wed Feb 6 23:55:02 CET 2019:
 
 **Warning**
 
-Because of the simplicity of the way I parse the result from wget, and/or, not using any API, this thing is suppose to break easily.
-
-Any layout change that Youtube will push to their web site, can stop the script from working correctly.
+Because of not using any API, this thing is suppose to break easily. Any layout change that Youtube will bring to their web site can stop the script from working correctly.
