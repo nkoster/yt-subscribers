@@ -14,13 +14,7 @@ results in a JSON object like this:
 {"time":"1548875491","subscribers":"232160","channel":"bald and bankrupt"}
 ```
 
-Another example:
-
-```
-./yt-subscribers https://www.youtube.com/user/hickok45
-```
-
-The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald)" is filled with more examples, my favorite Youtube channels:
+The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald)" contains more examples, my favorite Youtube channels:
 
 ```
 ./mrbald
