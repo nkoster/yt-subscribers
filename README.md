@@ -31,9 +31,9 @@ The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/ma
 {"time":"1549136483","subscribers":"3881219","channel":"hickok45"}
 ```
 
-I'm collecting this data, just for fun.
+I'm collecting this data for fun.
 
-A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Thu Feb 7 23:40:08 CET 2019 (1549579208), 5 minute samples, data collected with a cron job:
+A graph generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Thu Feb 7 23:40:08 CET 2019 (1549579208), 5 minute samples, data collected with a cron job:
 
 ![Mr Bald and Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
