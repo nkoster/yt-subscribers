@@ -33,7 +33,7 @@ The script "[mrbald](https://raw.githubusercontent.com/nkoster/yt-subscribers/ma
 
 I'm collecting this data, just for fun.
 
-A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Sun Feb 3 21:05:02 CET 2019 (1549224302), 5 minute samples, data collected with a cron job:
+A graph, generated with rrdtool. From Wed Jan 30 21:14:00 CET 2019 (1548879240) till Thu Feb 7 23:40:02 CET 2019 (1549224302), 5 minute samples, data collected with a cron job:
 
 ![Mr Bald and Karl Rock](https://raw.githubusercontent.com/nkoster/yt-subscribers/master/mrbald.png "Mr Bald and Karl Rock")
 
