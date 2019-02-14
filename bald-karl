@@ -19,8 +19,8 @@ output "$db contains $hours hours data."
 
 s_begin_bald=$(head -5 $db | grep 'bald' | awk -F '"' '{print$8}')
 s_begin_karl=$(head -5 $db | grep 'Karl' | awk -F '"' '{print$8}')
-s_end_bald=$(tail -6 $db | grep 'bald' | awk -F '"' '{print$8}')
-s_end_karl=$(tail -6 $db | grep 'Karl' | awk -F '"' '{print$8}')
+s_end_bald=$(tail -7 $db | grep 'bald' | awk -F '"' '{print$8}')
+s_end_karl=$(tail -7 $db | grep 'Karl' | awk -F '"' '{print$8}')
 
 s_per_hour_bald=$((($s_end_bald-$s_begin_bald)/$hours))
 s_per_hour_karl=$((($s_end_karl-$s_begin_karl)/$hours))
