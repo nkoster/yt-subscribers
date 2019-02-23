@@ -1,5 +1,8 @@
 #!/bin/bash
 
+### Awanish Goswami
+./yt-subscribers https://www.youtube.com/channel/UCg0NTo2gJL-ouiEYy0cusig
+
 ### Mister Bald
 ./yt-subscribers https://www.youtube.com/channel/UCxDZs_ltFFvn0FDHT6kmoXA
 
